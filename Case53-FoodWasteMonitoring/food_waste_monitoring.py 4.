@@ -1,0 +1,38 @@
+
+# Food Waste Monitoring System
+
+int_days = int(input("Enter number of days: "))
+
+float_limit = float(input("Enter maximum waste limit (kg): "))
+
+float_total = 0.0
+
+list_waste = []
+list_high_waste_days = []
+
+for int_day in range(1, int_days + 1):
+
+    float_waste = float(
+        input(f"Enter food waste for Day {int_day}: ")
+    )
+
+    list_waste.append(float_waste)
+    float_total += float_waste
+
+    if float_waste > float_limit:
+        list_high_waste_days.append(int_day)
+
+float_average = float_total / int_days
+
+print("\n--- FOOD WASTE REPORT ---")
+
+print("Total Food Waste:", float_total, "kg")
+print("Average Food Waste:", round(float_average, 2), "kg")
+
+if list_high_waste_days:
+    print("High Waste Days:")
+
+    for int_day in list_high_waste_days:
+        print("Day", int_day)
+else:
+    print("No high waste days detected.")
